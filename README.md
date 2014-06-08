@@ -4,10 +4,17 @@ diasporaAutoUpdate
 Greasemonkey-Addon to automatically update the stream like Twitter does in it's Webinterface.
 
 Install:  
-Install Greasemonkey and [click here](https://github.com/Faldrian/diasporaAutoUpdate/raw/master/src/Diaspora_AutoUpdater_\(Wai-Modus\).user.js).
+Install Greasemonkey and [click here](https://github.com/ventos/diasporaAutoUpdate/raw/master/src/Diaspora_AutoUpdater_\(Wai-Modus\).user.js).
 
 Changelog
 ---------
+
+08.06.2014
+**1.2.1**
+
+* Fix: Don't write "1 new Posts" anymore
+* New design of the box
+
 
 27.08.2013  
 **1.2.0**

@@ -2,11 +2,11 @@
 // @name        Diaspora AutoUpdater (Wai-Modus)
 // @namespace   Mein eigener
 // @description Aktualisiert automatisch die angezeigte Timeline.
-// @include     https://*/stream
+// @include     https://*/stream*
 // @grant		none
-// @downloadURL	https://github.com/Faldrian/diasporaAutoUpdate/raw/master/src/Diaspora_AutoUpdater_(Wai-Modus).user.js
-// @updateURL	https://github.com/Faldrian/diasporaAutoUpdate/raw/master/src/Diaspora_AutoUpdater_(Wai-Modus).user.js
-// @version     1.2.0
+// @downloadURL	https://github.com/ventos/diasporaAutoUpdate/raw/master/src/Diaspora_AutoUpdater_(Wai-Modus).user.js
+// @updateURL	https://github.com/ventos/diasporaAutoUpdate/raw/master/src/Diaspora_AutoUpdater_(Wai-Modus).user.js
+// @version     1.2.1
 // ==/UserScript==
 
 
@@ -49,6 +49,7 @@ window.d_autoupdater.setup = function() {
 			if(window.d_autoupdater.latest_entry != null) {
 				// Verstecke alle neu geladenen Beiträge
 				var newPostCount = 0;
+                var Nummerus;
 				var AvatarUrl = $('#user_menu li:nth-child(2) > a').attr('href');
 				// Alle Beiträge, die neu sind und nicht unser Button sind und auch nicht die PostPreview.
 				window.d_autoupdater.latest_entry.prevAll(':not(.post_preview)').not('#main_stream_refresh_button').each(function(index, element) {
@@ -66,8 +67,14 @@ window.d_autoupdater.setup = function() {
 				if(newPostCount > 0) { // Nur wenn es neue Beiträge gibt, den Button überhaupt anzeigen
 					// Knopf einfügen, der das Anzeigen der Beiträge erlaubt. Vorher alten Knopf löschen.
 					$('#main_stream_refresh_button').remove();
+                    // Damit wir nicht sowas wie "1 new Posts" bekommen
+                    if (newPostCount > 1) {
+                        Nummerus = "Posts";
+                    } else {
+                        Nummerus = "Post";
+                    }
 					// Knopf muss VOR die Einträge, aber NACH der Preview eingefügt werden!
-					window.d_autoupdater.latest_entry.before('<div id="main_stream_refresh_button" style="margin-top:15px; border: 1px solid #3f8fba; background-color: #cae2ef; padding: 6px; text-align:center;">' + newPostCount + ' new Posts</div>');
+					window.d_autoupdater.latest_entry.before('<div id="main_stream_refresh_button" style="margin-top:15px; border-radius: 40px 10px;  background-color: #1171AA; color: #f7fbfe; padding: 6px; text-align:center;">' + newPostCount + ' new ' + Nummerus + '</div>');
 					
 					$('#main_stream_refresh_button').click(function() {
 						window.d_autoupdater.latest_entry.prevAll().css('display',''); // Alte Beiträge anzeigen
