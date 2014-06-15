@@ -9,10 +9,10 @@ Install Greasemonkey and [click here](https://github.com/ventos/diasporaAutoUpda
 Changelog
 ---------
 
-08.06.2014
+08.06.2014  
 **1.2.1**
 
-* Fix: Don't write "1 new Posts" anymore
+* Fix: Doesn't write "1 new Posts" anymore
 * New design of the box
 
 
